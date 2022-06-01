@@ -42,9 +42,10 @@ namespace P2Pspeedrun.Services
         {
             var http = new HttpClient();
 
-            foreach(var peer in Peers)
+            // peer looks like this: "192.168.1.2:5000"
+            foreach(string peer in Peers)
             {
-                // ❤️
+                // ❤️ Wraping two objects into MessageProtocol and having .NET to parse it to JSON and make the HTTP request
                 http.PostAsJsonAsync("http://" + peer + "/api/message/receive", new MessageProtocol()
                 {
                     Message = m,
@@ -59,6 +60,7 @@ namespace P2Pspeedrun.Services
             // back and forth, spacetime in one long. Unix time!
             m.Timestamp = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds();
             m.Username = user;
+            // Globally unique identifier -- solution for decentralized IDs, gotta love 'em
             m.Id = Guid.NewGuid();
 
             Messages.Add(m);
