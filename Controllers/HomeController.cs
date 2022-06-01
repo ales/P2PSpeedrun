@@ -42,6 +42,7 @@ namespace P2Pspeedrun.Controllers
             // we try avoid to make services dependent on each other (injected in each other)
             // rather controller has instances of different services and do it's thing – controlls flow of data and actions
             // ~> where ~> what ~> do ~> what -- in 3~5 lines 99% of time!
+            // by the way - this is THE injection of user data into app service, so app service doesn't need to know about user service, and that's really really great – makes the code more separated and easier to change!
             app.NewMessage(m, userService.CurrentUser);
 
             return RedirectToAction("index");
