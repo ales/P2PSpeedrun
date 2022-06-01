@@ -7,7 +7,7 @@ builder.Services.AddMvc();
 // Singleton because we need the data inside to be persistent between requests
 builder.Services.AddSingleton<AppService>();
 
-// Scoped, but it doesn't really matter in this case, since the implementation is „static“
+// Scoped, one instance for one request. --but it doesn't really matter in this case, since the implementation is ales -- but thats great anyway because the rest of the app can have final shape and the user stuff can be solved latter.
 builder.Services.AddScoped<UserService>();
 
 var app = builder.Build();
