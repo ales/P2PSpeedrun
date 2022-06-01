@@ -6,9 +6,6 @@ namespace P2Pspeedrun.Models
         public Message Message { get; set; }
         public Client Client { get; set; }
 
-        public MessageProtocol()
-		{
-		}
 	}
 }
 

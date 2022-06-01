@@ -38,6 +38,10 @@ namespace P2Pspeedrun.Controllers
         [HttpPost("post")]
         public IActionResult Post(Message m)
         {
+            // here we control flow between App and User services.
+            // we try avoid to make services dependent on each other (injected in each other)
+            // rather controller has instances of different services and do it's thing – controlls flow of data and actions
+            // ~> where ~> what ~> do ~> what -- in 3~5 lines 99% of time!
             app.NewMessage(m, userService.CurrentUser);
 
             return RedirectToAction("index");

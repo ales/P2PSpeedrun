@@ -6,6 +6,7 @@ namespace P2Pspeedrun.Services
         public string CurrentUser { get; set; }
         public UserService()
 		{
+			// yes
 			CurrentUser = "ales";
 		}
 
