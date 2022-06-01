@@ -13,8 +13,8 @@ namespace P2Pspeedrun.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly AppService app;
-        private readonly UserService userService;
+        private AppService app;
+        private UserService userService;
 
         public HomeController(AppService app, UserService userService)
         {
