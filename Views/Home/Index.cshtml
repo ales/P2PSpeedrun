@@ -1,0 +1,33 @@
+﻿@using P2Pspeedrun.Models
+@using P2Pspeedrun.ViewModels
+@model IndexViewModel
+
+<h1>P2P appka</h1>
+
+<form method="post" action="@Url.Action("post", "home")">
+    <label>
+        text <input name="text" type="text" />
+    </label>
+    <input type="submit" />
+</form>
+
+<ul>
+    @foreach (string p in Model.Peers)
+    {
+        <li>
+            @p
+        </li>
+    }
+</ul>
+
+<ul>
+    @foreach (Message m in Model.Messages)
+    {
+        <li>
+            @m.Text<br />
+            <code>@m.Username – @DateTimeOffset.FromUnixTimeMilliseconds(m.Timestamp).LocalDateTime</code>
+            <br />
+            <code>@m.Id</code>
+        </li>
+    }
+</ul>
