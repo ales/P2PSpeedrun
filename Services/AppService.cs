@@ -19,7 +19,7 @@ namespace P2Pspeedrun.Services
             Peers.Add("192.168.3.147:5000");
         }
 
-		public List<Message> GetMessages()
+        public List<Message> GetMessages()
         {
             return Messages;
         }
