@@ -12,12 +12,12 @@ namespace P2Pspeedrun.Services
         public HashSet<string> Peers { get; set; }
 
         public AppService()
-		{
+        {
             Messages = new(); // we don't have to specify the class name for new() because it's already given in the prop definition
             Peers = new(); // so – this shorhand!
 
             Peers.Add("192.168.3.147:5000");
-		}
+        }
 
 		public List<Message> GetMessages()
         {
